@@ -28,3 +28,18 @@ fun productExceptSelf(nums: IntArray): IntArray {
 
     return productArray
 }
+// Time space O(n^2)
+ fun productExceptSelf2(nums: IntArray): IntArray {
+        val size = nums.size
+        val productArray= IntArray(size) { 1 }
+        for(i in nums.indices){
+            for(n in 0 until i){
+                productArray[i]*=nums[n]
+            }
+            for(n in i+1 until size){
+                productArray[i]*=nums[n]
+            }
+        }
+        return productArray
+    }
+
